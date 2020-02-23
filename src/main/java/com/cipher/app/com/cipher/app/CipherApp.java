@@ -14,8 +14,8 @@ public class CipherApp {
 
 		while (!abortSignal) {
 			System.out.println("What do you want to do?");
-			System.out.println("\ta - Encode");
-			System.out.println("\tb - Decode");
+			System.out.println("\ta - Encrypt");
+			System.out.println("\tb - Decrypt");
 			System.out.println("\tq - Quit");
 
 			switch (scanner.nextLine()) {
@@ -37,9 +37,9 @@ public class CipherApp {
 	}
 
 	/**
-	 * Executes the Encoding/Decoding process
+	 * Executes the Encrypting/Decrypting process
 	 * 
-	 * @param mode    - 0 = Encode; 1 = Decode
+	 * @param mode    - 0 = Encrypt; 1 = Decrypt
 	 * @param scanner - the Scanner instance to use
 	 */
 	private static void run(int mode, Scanner scanner) {
@@ -63,17 +63,17 @@ public class CipherApp {
 		cipher = scanner.nextLine();
 
 		if (mode == 0) { // Encode
-			System.out.println("Your Encoded text is: \n");
+			System.out.println("Your Encrypted text is: \n");
 			System.out.println(applyCipher(cipher.trim(), cipherKey) + "\n");
 		} else if (mode == 1) { // Decode
-			System.out.println("Your Decoded text is: \n");
+			System.out.println("Your Decrypted text is: \n");
 			System.out.println(applyCipher(cipher.trim(), -cipherKey) + "\n");
 		}
 
 	}
 
 	/**
-	 * Applies the Caesar Cipher. Encoding and Decoding is the same mathematical
+	 * Applies the Caesar Cipher. Encrypting and Decrypting is the same mathematical
 	 * process. Only the "direction" of the key changes. Note = Can be
 	 * encoded/decoded in either direction by the use of a negative key
 	 * 
